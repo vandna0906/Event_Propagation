@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alert_Button_Events</title>
+    <style>
+        #btn{
+            width: 200px;
+            height: 50px;
+            background-color:pink ;
+            font-size: 30px;
+            border-radius: 10px;
+            margin-left: 100px;
+        }
+        button{
+            margin-top: 50px;
+            width: 100px;
+            height: 20px;
+            background-color: royalblue;
+        }
+        
+    </style>
+</head>
+<body>
+    <button id="btn">show Button</button>
+    <div id="container"></div>
+</body>
+</html>
+<script>
+    let main=document.getElementById("btn")
+    let container=document.getElementById("container")
+    main.addEventListener('click',()=>{
+        container.innerHTML = null;
+        for(let i=0; i<5; i++){
+            
+            let part=document.createElement('button')
+            part.innerText=`Button${i+1}`
+            part.addEventListener('click',showAlert)
+            container.append(part);
+        }
+         function showAlert(){
+             alert(event.target.innerText)
+         }
+
+    })
+</script>
